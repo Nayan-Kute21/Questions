@@ -46,13 +46,16 @@ export default function Home() {
             body: formData,
           });
           
+
           if (!response.ok) {
             throw new Error(`Failed to process ${file.name}`);
           }
           
           return await response.json();
         })
+        
       );
+      console.log("Processing results:", results);
       
       router.push('/Questions');
       

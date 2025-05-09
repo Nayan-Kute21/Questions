@@ -251,6 +251,7 @@ export async function getAllChunks(indexName: string, limit: number = 20) {
     
     // Implement retry logic with exponential backoff
     const maxRetries = 5;
+    //@ts-ignore
     let matches = [];
     
     for (let attempt = 0; attempt < maxRetries; attempt++) {
@@ -279,7 +280,7 @@ export async function getAllChunks(indexName: string, limit: number = 20) {
     if (matches.length === 0) {
       console.log("Data not available in index after all retry attempts.");
     }
-    
+    //@ts-ignore
     return matches;
   } catch (error) {
     console.error("Error fetching chunks from Pinecone:", error);

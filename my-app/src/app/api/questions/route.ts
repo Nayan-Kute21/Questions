@@ -157,11 +157,14 @@ export async function GET(request: Request) {
     }
     
     // Extract text from the matches
+    
     const textChunks = queryResult.matches.map(match => 
       match.metadata?.text || ""
+      //@ts-ignore
     ).filter(text => text.length > 0);
     
     // Generate questions using Gemini LLM
+    //@ts-ignore
     let questions = await generateQuestionsFromChunks(textChunks);
     questions = removeDuplicateQuestions(questions);
     

@@ -43,6 +43,7 @@ export async function generateQuestionFromChunk(textChunk: string): Promise<stri
     if (response) {
       // Check different possible locations for the text content
       if (response.text && typeof response.text === 'function') {
+        //@ts-ignore
         questionText = response.text().trim();
       } else if (response.candidates && response.candidates[0]?.content?.parts) {
         // Access via candidates array if present

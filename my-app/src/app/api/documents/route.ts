@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { deleteAllDocuments } from '@/utils/pinecone';
 
-export async function DELETE(request: Request) {
+export async function DELETE() {
   try {
     // Get the index name from environment variables
     const indexName = process.env.PINECONE_INDEX || "pdf-embedding";
